@@ -1,19 +1,21 @@
-<mat-form-field>
-    <mat-label>Titlu</mat-label>
-    <input matInput [(ngModel)]="vacation.title">
-</mat-form-field>
-<section class="wrapper">
-    <mat-form-field appearance="fill">
-        <mat-label>Se începe pe</mat-label>
-        <input matInput [matDatepicker]="start" [max]="vacation.end" [(ngModel)]="vacation.start">
-        <mat-datepicker-toggle matIconSuffix [for]="start"></mat-datepicker-toggle>
-        <mat-datepicker #start></mat-datepicker>
+<ng-container *ngIf="user$ | async as user">
+    <mat-form-field>
+        <mat-label>Titlu</mat-label>
+        <input matInput [(ngModel)]="request.title">
     </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Se termină pe</mat-label>
-        <input matInput [matDatepicker]="end" [min]="vacation.start" [(ngModel)]="vacation.end">
-        <mat-datepicker-toggle matIconSuffix [for]="end"></mat-datepicker-toggle>
-        <mat-datepicker #end></mat-datepicker>
-    </mat-form-field>
-</section>
-<button mat-raised-button color="primary" mat-dialog-close (click)="onSave()">Adaugă</button>
+    <section class="wrapper">
+        <mat-form-field appearance="fill">
+            <mat-label>Se începe pe</mat-label>
+            <input matInput [matDatepicker]="start" [max]="request.end" [(ngModel)]="request.start">
+            <mat-datepicker-toggle matIconSuffix [for]="start"></mat-datepicker-toggle>
+            <mat-datepicker #start></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Se termină pe</mat-label>
+            <input matInput [matDatepicker]="end" [min]="request.start" [(ngModel)]="request.end">
+            <mat-datepicker-toggle matIconSuffix [for]="end"></mat-datepicker-toggle>
+            <mat-datepicker #end></mat-datepicker>
+        </mat-form-field>
+    </section>
+    <button mat-raised-button color="primary" mat-dialog-close (click)="onSave(user)">Adaugă</button>
+</ng-container>

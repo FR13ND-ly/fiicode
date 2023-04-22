@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AdminService } from 'src/app/shared/data-access/admin.service';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/data-access/auth.service';
+import { UserService } from 'src/app/shared/data-access/user.service';
 
 
 @Component({
@@ -11,7 +11,9 @@ import { AuthService } from 'src/app/shared/data-access/auth.service';
 })
 export class AddRequestDialogComponent {
 
-  constructor(private authService: AuthService, private userService: AdminService) { }
+  constructor(private authService: AuthService, private userService: UserService) { }
+
+  user$ : Observable<any> = this.authService.getUserUpdateListener()
 
   request: any = {
     title: "",
@@ -20,9 +22,10 @@ export class AddRequestDialogComponent {
     userId: 0
   }
 
-  onSave() {
+  onSave(user : any) {
     this.request.start = this.request.start.toISOString().split( "T" )[0];
     this.request.end = this.request.end.toISOString().split( "T" )[0];
+    this.request.userId = user.uid
     this.userService.addRequest(this.request).subscribe()
   }
 }

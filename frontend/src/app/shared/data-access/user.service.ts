@@ -20,6 +20,6 @@ export class UserService {
   }
 
   addRequest(data : any) {
-    return this.http.post(this.APIUrl + 'vacations/add/', data)
+    return this.http.post(this.APIUrl + 'requests/add/', data)
   }
 }

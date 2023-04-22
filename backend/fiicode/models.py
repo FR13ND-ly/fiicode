@@ -22,7 +22,6 @@ class Vacation(models.Model):
 class RequestVacation(models.Model):
     userId = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
-    description = models.TextField(default="")
     start = models.DateField()
     end = models.DateField()
     date = models.DateTimeField(default=timezone.now)

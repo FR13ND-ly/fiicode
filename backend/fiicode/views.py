@@ -235,7 +235,6 @@ def add_request(request):
     request = RequestVacation.objects.create(
         userId=data['userId'], 
         title=data['title'], 
-        description=data['description'], 
         start=data['start'], 
         end=data['end']
     )
