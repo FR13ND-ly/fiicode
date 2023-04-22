@@ -12,6 +12,8 @@ import { InviteUserDialogComponent } from './invite-user-dialog/invite-user-dial
 import { RouterModule } from '@angular/router';
 import { VacationsComponent } from './vacations/vacations.component';
 import { AddVacationsDialogComponent } from './add-vacations-dialog/add-vacations-dialog.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { HeaderComponent } from 'src/app/shared/ui/header/header.component';
 
 
 
@@ -27,7 +29,9 @@ import { AddVacationsDialogComponent } from './add-vacations-dialog/add-vacation
     UploadFileDialogComponent,
     InviteUserDialogComponent,
     VacationsComponent,
-    AddVacationsDialogComponent
+    AddVacationsDialogComponent,
+    SidebarComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
