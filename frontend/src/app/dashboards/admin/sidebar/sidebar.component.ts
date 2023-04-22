@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AuthService } from 'src/app/shared/data-access/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,14 +7,35 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
+  
+  constructor(private authService: AuthService) { }
 
-  @Input()
-  items : any = []
+  menu = [
+    {
+      name: 'Prezentare Generala',
+      icon: 'dashboard',
+      link: '/home'
+    },
+    {
+      name: 'Angajati',
+      icon: 'people',
+      link: '/users'
+    },
+    {
+      name: 'Documente Interne',
+      icon: 'folder',
+      link: '/files'
+    },
+    {
+      name: 'Asistent Virtual',
+      icon: 'chat',
+      link: '/chat'
+    },
+  ]
 
-  @Input()
-  validated : boolean = true
+  origin : string = '/dashboard/admin'
 
-  @Input()
-  origin : string = ''
-
+  onLogout() {
+    this.authService.logout()
+  }
 }

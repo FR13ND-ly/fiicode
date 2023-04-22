@@ -15,6 +15,7 @@ import { AddVacationsDialogComponent } from './add-vacations-dialog/add-vacation
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from 'src/app/shared/ui/header/header.component';
 import { MatIconModule  } from '@angular/material/icon';
+import { MaterialModule } from 'src/app/shared/feature/material.module';
 
 @NgModule({
   declarations: [
@@ -36,14 +37,14 @@ import { MatIconModule  } from '@angular/material/icon';
     HeaderComponent,
     RouterModule.forChild([
       { path: '', component: ShellComponent, children: [
-        { path: '', component: MainComponent },
+        { path: 'home', component: MainComponent },
         { path: 'users', component: UsersComponent },
         { path: 'files', component: FilesComponent },
         { path: 'chat', component: ChatComponent },
         { path: 'vacations', component: VacationsComponent },
-      ] }
+      ]}
     ]),
-    MatIconModule
+    MaterialModule
   ]
 })
 export class AdminModule { }

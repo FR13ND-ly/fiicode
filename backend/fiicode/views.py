@@ -19,7 +19,7 @@ def login(request):
     data = JSONParser().parse(request)
     user, created = User.objects.get_or_create(uid=data['uid'])
     if (created):
-        user.username = data['name']
+        user.username = data['displayName']
         user.avatarId = add_file(data['photoURL'], data['uid'])
         user.email = data['email']
         user.save()
@@ -33,8 +33,8 @@ def login(request):
 
 @csrf_exempt
 def auth(request, uid):
-    users = user.objects.filter(uid=uid)
-    if not profiles.exists():
+    users = User.objects.filter(uid=uid)
+    if not users.exists():
         return JsonResponse({})
     user = users.first()
     response = {
@@ -55,6 +55,7 @@ def get_users(request):
             "uid" : user.uid,
             "admin" : user.admin,
             "name" : user.username,
+            "email" : user.email,
             "imageUrl" : get_file(user.avatarId),
             "job" : user.job,
         })
@@ -101,7 +102,7 @@ def get_documents(request):
             "id" : document.id,
             "user" : user,
             "title" : document.title,
-            "description" : document.description,
+            "type" : document.type,
             "fileUrl" : get_file(document.fileId),
         })
     return JsonResponse(response, safe=False)
@@ -112,8 +113,8 @@ def add_document(request):
     document = Document.objects.create(
         userId=data['userId'], 
         title=data['title'], 
-        description=data['description'], 
-        fileId=data["fileId"]
+        fileId=data["fileId"],
+        type=get_file(data['file']).split(".")[-1]
     )
     document.save()
     return JsonResponse(document.id, safe=False)

@@ -1,13 +1,13 @@
 <div>
     <img [routerLink]="origin + '/main'" routerLinkActive="router-link-active"  class="logo" src="/assets/images/full_logo_w.png">
     <section class="menu">
-        <div class="item" routerLinkActive="item--active" [routerLink]="origin + item.link" [class.disabled]="!validated" *ngFor="let item of items">
+        <div class="item" routerLinkActive="item--active" [routerLink]="origin + item.link" *ngFor="let item of menu">
             <mat-icon>{{ item.icon }}</mat-icon>
             <p class="item__name">{{ item.name }}</p>
         </div>
     </section>
 </div>
-<div class="item" routerLink="/">
+<div class="item" routerLink="/" (click)="onLogout()">
     <mat-icon>exit_to_app</mat-icon>
     <span class="item__name">Logout</span>
 </div>

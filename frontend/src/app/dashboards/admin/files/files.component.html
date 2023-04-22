@@ -1,1 +1,20 @@
-<p>files works!</p>
+<h1 class="page-title">Documente interne</h1>
+<p class="page-subtitle">Administrează documentele companiei</p>
+<div class="page-content wrapper">
+    <section class="upload-document card">
+        <h2>Încarcă un document</h2>
+        <mat-form-field appearance="outline">
+            <mat-label>Nume</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <div class="wrapper">
+            <input type="file" #add>
+        </div>
+    </section>
+    <section class="files-wrapper" *ngIf="files$ | async as files">
+        <div class="file" *ngFor="let file of files">
+            <div class="file__name">{{ file.name }}</div>
+            
+        </div>
+    </section>
+</div>

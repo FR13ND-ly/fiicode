@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     #auth
     path('auth/login/', views.login),
-    path('auth/get/<int:uid>/', views.auth),
+    path('auth/get/<str:uid>/', views.auth),
     #files
     path('files/upload/', views.upload_file),
     #users
@@ -13,7 +13,7 @@ urlpatterns = [
     path('users/update/<int:id>/', views.update_user),
     path('users/delete/<int:id>/', views.delete_user),
     #documents
-    path('documents/get/', views.get_documents),
+    path('documents/get/all/', views.get_documents),
     path('documents/add/', views.add_document),
     path('documents/delete/<int:id>/', views.delete_document),
     #vacations

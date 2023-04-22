@@ -19,10 +19,18 @@ class Vacation(models.Model):
     end = models.DateField()
     date = models.DateTimeField(default=timezone.now)
 
-class Document(models.Model):
+class RequestVacation(models.Model):
     userId = models.PositiveIntegerField()
     title = models.CharField(max_length=255)
     description = models.TextField(default="")
+    start = models.DateField()
+    end = models.DateField()
+    date = models.DateTimeField(default=timezone.now)
+
+class Document(models.Model):
+    userId = models.PositiveIntegerField()
+    title = models.CharField(max_length=255)
+    type = models.CharField(max_length=255, default="pdf")
     fileId = models.PositiveIntegerField(null=True)
     date = models.DateTimeField(default=timezone.now)
     

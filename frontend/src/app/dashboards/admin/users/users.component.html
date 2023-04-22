@@ -1,1 +1,22 @@
-<p>users works!</p>
+<h1 class="page-title">Angajați</h1>
+<p class="page-subtitle">Aici poți administra angajații</p>
+<div class="page-content wrapper">
+    <div class="users-list" *ngIf="users$ | async as users">
+        <img 
+        class="muser" 
+        [src]="user.imageUrl" 
+        *ngFor="let user of users; let i = index"
+        [class.muser--selected]="i == (selectedIndex$ | async)"
+        (click)="selectedIndex$.next(i)">
+    </div>
+    <div *ngIf="user$ | async as user">
+        <section class="user card--outline">
+            <img class="user__image" [src]="user.imageUrl">
+            <div class="user__info">
+                <p class="user__job">{{ user.job }}</p>
+                <p class="user__name">{{ user.name }}</p>
+                <p class="user__email">{{ user.email }}</p>
+            </div>
+        </section>
+    </div>
+</div>
