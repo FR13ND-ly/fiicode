@@ -6,6 +6,12 @@
     justify-content: space-between;
 }
 
+img {
+    @include mq(small) {
+        height: 50px;
+    }       
+}
+
 .main {
     display: flex;
     flex-direction: column;
@@ -24,7 +30,11 @@
         @include mq(small) {
             font-size: 3rem;
         } 
+        @include mq(medium) {
+            font-size: 2rem;
+        } 
     }
+    
     &__mark {
         position: relative;
         z-index: 1;
@@ -49,7 +59,7 @@
         line-height: 1.6;
         @include mq(small) {
             padding-left: 0;
-            width: 100%;
+            width: 60%;
         } 
     }
     &__button {
