@@ -16,6 +16,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from 'src/app/shared/ui/header/header.component';
 import { MatIconModule  } from '@angular/material/icon';
 import { MaterialModule } from 'src/app/shared/feature/material.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MaterialModule } from 'src/app/shared/feature/material.module';
   imports: [
     CommonModule,
     HeaderComponent,
+    FormsModule,
     RouterModule.forChild([
       { path: '', component: ShellComponent, children: [
         { path: 'home', component: MainComponent },

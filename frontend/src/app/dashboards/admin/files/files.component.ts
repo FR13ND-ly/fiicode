@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { AdminService } from 'src/app/shared/data-access/admin.service';
+import { AuthService } from 'src/app/shared/data-access/auth.service';
 
 @Component({
   selector: 'app-files',
@@ -9,11 +10,24 @@ import { AdminService } from 'src/app/shared/data-access/admin.service';
 })
 export class FilesComponent {
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private authService: AuthService) { }
+
+  user$ = this.authService.getUserUpdateListener()
 
   files$ : Observable<any> = this.adminService.getFiles()
+  title : string = ''
 
-  onUploadFile() {
-    
+  onAddFile(input : any, user : any) {
+    this.adminService.addFile(input.files[0]).pipe(
+      switchMap(fileId => this.adminService.addDocument({
+        title: this.title,
+        fileId,
+        userId: user.uid
+      })
+    )).subscribe((res) => console.log(res))
+  }
+
+  onDeleteConsultation(id : string) {
+    this.adminService.deleteDocument(id).subscribe((res) => console.log(res))
   }
 }

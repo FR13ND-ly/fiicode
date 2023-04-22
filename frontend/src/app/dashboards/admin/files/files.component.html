@@ -1,20 +1,34 @@
 <h1 class="page-title">Documente interne</h1>
 <p class="page-subtitle">Administrează documentele companiei</p>
 <div class="page-content wrapper">
-    <section class="upload-document card">
+    <section class="upload-document card" *ngIf="user$ | async as user">
         <h2>Încarcă un document</h2>
         <mat-form-field appearance="outline">
             <mat-label>Nume</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="title">
         </mat-form-field>
+        <button class="button button--upload-file" (click)="input.click()">
+            <mat-icon>upload</mat-icon>
+            Add file
+        </button>
         <div class="wrapper">
-            <input type="file" #add>
+            <input type="file" #input style="display: none">
         </div>
+        <button (click)="onAddFile(input, user)" mat-raised-button color="primary">Încarcă</button>
     </section>
     <section class="files-wrapper" *ngIf="files$ | async as files">
-        <div class="file" *ngFor="let file of files">
-            <div class="file__name">{{ file.name }}</div>
-            
-        </div>
+        <article class="document card" *ngFor="let file of files">
+            <div class="document__main">
+                <div class="document__button"><mat-icon>upload_file</mat-icon></div>
+                <div class="document__data">
+                    <b>{{file.date | date : "medium" }}</b>
+                    <section class="user">
+                        <img class="user__image" [src]="file.user.imageUrl">
+                        <span>{{file.user.username}}</span>
+                    </section>
+                </div>
+            </div>
+            <mat-icon (click)="onDeleteConsultation(file.id)" class="file__delete-btn" color="warn">delete</mat-icon>
+        </article>
     </section>
 </div>

@@ -18,4 +18,18 @@ export class AdminService {
   getFiles() {
     return this.http.get(this.APIUrl + 'documents/get/all/')
   }
+
+  addFile(file : any) {
+    let formData = new FormData()
+    formData.append('file', file, file.name)
+    return this.http.post(`${this.APIUrl}files/upload/`, formData)
+  }
+
+  addDocument(document : any) {
+    return this.http.post(`${this.APIUrl}documents/add/`, document)
+  }
+
+  deleteDocument(id : string) {
+    return this.http.delete(`${this.APIUrl}documents/delete/${id}/`)
+  }
 }
