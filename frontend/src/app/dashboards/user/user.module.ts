@@ -4,7 +4,8 @@ import { ShellComponent } from './shell/shell.component';
 import { ChatComponent } from './chat/chat.component';
 import { VacationsComponent } from './vacations/vacations.component';
 import { FilesComponent } from './files/files.component';
-
+import { RouterModule } from '@angular/router';
+import { AddVacationDialogComponent } from './add-vacation-dialog/add-vacation-dialog.component';
 
 
 @NgModule({
@@ -12,10 +13,14 @@ import { FilesComponent } from './files/files.component';
     ShellComponent,
     ChatComponent,
     VacationsComponent,
-    FilesComponent
+    FilesComponent,
+    AddVacationDialogComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild([
+      { path: '', component: ShellComponent }
+    ])
   ]
 })
 export class UserModule { }

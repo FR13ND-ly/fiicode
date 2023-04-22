@@ -9,6 +9,9 @@ import { UserVacationsDialogComponent } from './user-vacations-dialog/user-vacat
 import { UserSettingsDialogComponent } from './user-settings-dialog/user-settings-dialog.component';
 import { UploadFileDialogComponent } from './upload-file-dialog/upload-file-dialog.component';
 import { InviteUserDialogComponent } from './invite-user-dialog/invite-user-dialog.component';
+import { RouterModule } from '@angular/router';
+import { VacationsComponent } from './vacations/vacations.component';
+import { AddVacationsDialogComponent } from './add-vacations-dialog/add-vacations-dialog.component';
 
 
 
@@ -22,10 +25,15 @@ import { InviteUserDialogComponent } from './invite-user-dialog/invite-user-dial
     UserVacationsDialogComponent,
     UserSettingsDialogComponent,
     UploadFileDialogComponent,
-    InviteUserDialogComponent
+    InviteUserDialogComponent,
+    VacationsComponent,
+    AddVacationsDialogComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild([
+      { path: '', component: ShellComponent }
+    ])
   ]
 })
 export class AdminModule { }
