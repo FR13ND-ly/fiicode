@@ -1,13 +1,32 @@
 @use 'src/assets/scss/utils' as *;
 
+/* width */
 ::-webkit-scrollbar {
-    background-color: #acacac;
     border-radius: var(--border-radius);
     height: .5rem;
 }
 
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+
 .carousel {
-    overflow-x: scroll;
+    overflow: auto;
+    display: flex;
+    width: 70vw;
 }
 
 .files-bar {
@@ -20,17 +39,20 @@ $icon-size: 6.2rem;
 
 .info-pane {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    padding-inline: 1rem;
+    padding-inline: 2rem;
+    margin-inline-end: 2rem;
     cursor: pointer;
+
     &__icon {
         font-size: $icon-size;
         height: $icon-size;
         width: $icon-size;
     }
+
     &__content {
         display: flex;
         flex-direction: column;
@@ -39,17 +61,21 @@ $icon-size: 6.2rem;
         text-align: center;
         gap: 2rem;
     }
+
     &__title {
         font-size: .8rem;
         line-height: 1;
     }
+
     &__count {
         margin: 0;
         font-size: 2.4rem;
     }
+
     &__link {
         margin-left: .5rem;
         color: inherit;
+
         &:hover {
             text-decoration: underline;
         }
@@ -57,17 +83,22 @@ $icon-size: 6.2rem;
 }
 
 .wrapper {
+    display: flex;
     padding: 2rem;
+    flex-direction: column;
+
     @include mq(small) {
         width: fit-content;
         flex-direction: column;
-    } 
+    }
+
     width: 100%;
 }
 
 .mark {
     color: var(--primary-color);
     cursor: pointer;
+
     &:hover {
         text-decoration: underline;
     }
