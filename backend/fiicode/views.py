@@ -10,8 +10,21 @@ from django.core.files.base import ContentFile
 from PIL import Image
 import PIL
 import datetime
-from fiicode.models import User, Vacation, Document, File
+from fiicode.models import User, Vacation, Document, File, RequestVacation
 URL="http://127.0.0.1:8000/"
+
+
+def main(request):
+    users_count = User.objects.all().count()
+    vacations_count = Vacation.objects.all().count()
+    documents_count = Document.objects.all().count()
+    request_count = RequestVacation.objects.all().count()
+    return JsonResponse({
+        "usersCount" : users_count,
+        "vacationsCount" : vacations_count,
+        "documentsCount" : documents_count,
+        "requestsCount" : request_count,
+    })
 
 #auth
 @csrf_exempt
@@ -27,6 +40,7 @@ def login(request):
         "uid" : user.uid,
         "admin" : user.admin,
         "name" : user.username,
+        "job" : user.job,
         "imageUrl" : get_file(user.avatarId),
     }
     return JsonResponse(response)
@@ -41,6 +55,7 @@ def auth(request, uid):
         "uid" : user.uid,
         "admin" : user.admin,
         "name" : user.username,
+        "job" : user.job,
         "imageUrl" : get_file(user.avatarId),
     }
     return JsonResponse(response)
@@ -57,6 +72,7 @@ def get_users(request):
             "name" : user.username,
             "email" : user.email,
             "imageUrl" : get_file(user.avatarId),
+            "requests" : RequestVacation.objects.filter(userId=user.uid).count(),
             "job" : user.job,
         })
     return JsonResponse(response, safe=False)
@@ -175,6 +191,59 @@ def update_vacation(request, id):
     vacation.save()
     return JsonResponse({}, safe=False)
 
+
+#requests
+@csrf_exempt
+def get_requests(request, id):
+    requests = Request.objects.filter(userId=id)
+    response = []
+    for request in requests:
+        user = {
+            "username" : User.objects.get(id=request.userId).username,
+            "imageUrl" : get_file(User.objects.get(id=request.userId).avatarId),
+        }
+        response.append({
+            "id" : request.id,
+            "user" : user,
+            "title" : request.title,
+            "description" : request.description,
+            "start" : request.start,
+            "end" : request.end,
+        })
+    return JsonResponse(response, safe=False)
+
+@csrf_exempt
+def add_request(request):
+    data = JSONParser().parse(request)
+    request = Request.objects.create(
+        userId=data['userId'], 
+        title=data['title'], 
+        description=data['description'], 
+        start=data['start'], 
+        end=data['end']
+    )
+    request.save()
+    return JsonResponse(request.id, safe=False)
+
+@csrf_exempt
+def delete_request(request, id):
+    request = RequestVacation.objects.get(id=id)
+    request.delete()
+    return JsonResponse({}, safe=False)
+
+@csrf_exempt
+def approve_request(request, id):
+    request = RequestVacation.objects.get(id=id)
+    vacation = Vacation.objects.create(
+        userId=request.userId, 
+        title=request.title,
+        start=request.start, 
+        end=request.end
+    )
+    vacation.save()
+    request.delete()
+    return JsonResponse({}, safe=False)
+
 #files
 
 @csrf_exempt
@@ -193,3 +262,8 @@ def add_file(imageUrl, uid):
 
 def get_file(id):
     return URL + "media/" + os.path.basename(File.objects.get(id=id).file.name)
+
+
+@csrf_exempt
+def chat(request):
+    return
