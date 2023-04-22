@@ -30,4 +30,9 @@ export class FilesComponent {
   onDeleteConsultation(id : string) {
     this.adminService.deleteDocument(id).subscribe((res) => console.log(res))
   }
+
+  onOpenFile(file : any) {
+    console.log(file)
+    window.open(file.fileUrl, "_blank")
+  }
 }

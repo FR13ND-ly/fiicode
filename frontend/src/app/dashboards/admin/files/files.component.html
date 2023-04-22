@@ -7,20 +7,23 @@
             <mat-label>Nume</mat-label>
             <input matInput [(ngModel)]="title">
         </mat-form-field>
-        <button class="button button--upload-file" (click)="input.click()">
-            <mat-icon>upload</mat-icon>
-            Add file
-        </button>
-        <div class="wrapper">
-            <input type="file" #input style="display: none">
+        <div class="v-wrapper">
+            <button class="button button--upload-file" (click)="input.click()">
+                <mat-icon>upload</mat-icon>
+                Add file
+            </button>
+            <div class="wrapper">
+                <input type="file" #input style="display: none">
+            </div>
+            <button (click)="onAddFile(input, user)" mat-raised-button color="primary">Încarcă</button>
         </div>
-        <button (click)="onAddFile(input, user)" mat-raised-button color="primary">Încarcă</button>
     </section>
     <section class="files-wrapper" *ngIf="files$ | async as files">
         <article class="document card" *ngFor="let file of files">
             <div class="document__main">
-                <div class="document__button"><mat-icon>upload_file</mat-icon></div>
+                <div class="document__button" (click)="onOpenFile(file)"><mat-icon>upload_file</mat-icon></div>
                 <div class="document__data">
+                    <b>{{file.title}}</b>
                     <b>{{file.date | date : "medium" }}</b>
                     <section class="user">
                         <img class="user__image" [src]="file.user.imageUrl">
@@ -28,7 +31,7 @@
                     </section>
                 </div>
             </div>
-            <mat-icon (click)="onDeleteConsultation(file.id)" class="file__delete-btn" color="warn">delete</mat-icon>
+            <mat-icon (click)="onDeleteConsultation(file.id)" class="document__delete-btn" color="warn">delete</mat-icon>
         </article>
     </section>
 </div>
