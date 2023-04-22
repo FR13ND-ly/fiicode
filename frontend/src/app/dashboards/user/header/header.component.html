@@ -1,0 +1,10 @@
+<ng-container *ngIf="user$ | async as user">
+    <div class="center">
+        <img class="avatar" [src]="user.imageUrl">
+        <section class="user">
+            <span class="user__name">{{ user.name }}</span>
+            <span class="user__type">{{ user.type }}</span>
+        </section>
+        <mat-icon>logout</mat-icon>
+    </div>
+</ng-container>

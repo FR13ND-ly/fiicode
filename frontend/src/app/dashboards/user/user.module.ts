@@ -7,22 +7,24 @@ import { FilesComponent } from './files/files.component';
 import { RouterModule } from '@angular/router';
 import { AddVacationDialogComponent } from './add-vacation-dialog/add-vacation-dialog.component';
 import { MatIconModule  } from '@angular/material/icon';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
-  declarations: [
-    ShellComponent,
-    ChatComponent,
-    VacationsComponent,
-    FilesComponent,
-    AddVacationDialogComponent,
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      { path: '', component: ShellComponent }
-    ]),
-    MatIconModule
-  ]
+    declarations: [
+        ShellComponent,
+        ChatComponent,
+        VacationsComponent,
+        FilesComponent,
+        AddVacationDialogComponent,
+        HeaderComponent,
+    ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            { path: '', component: ShellComponent }
+        ]),
+        MatIconModule
+    ]
 })
 export class UserModule { }
