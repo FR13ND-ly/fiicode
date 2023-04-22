@@ -148,14 +148,27 @@ def get_vacations(request):
     response = []
     for vacation in vacations:
         user = {
-            "username" : User.objects.get(id=vacation.userId).username,
-            "imageUrl" : get_file(User.objects.get(id=vacation.userId).avatarId),
+            "uid" : vacation.userId,
+            "username" : User.objects.get(uid=vacation.userId).username,
+            "imageUrl" : get_file(User.objects.get(uid=vacation.userId).avatarId),
         }
         response.append({
             "id" : vacation.id,
             "user" : user,
             "title" : vacation.title,
-            "description" : vacation.description,
+            "start" : vacation.start,
+            "end" : vacation.end,
+        })
+    return JsonResponse(response, safe=False)
+
+@csrf_exempt
+def get_vacations_user(request, uid):
+    vacations = Vacation.objects.filter(userId = uid)
+    response = []
+    for vacation in vacations:
+        response.append({
+            "id" : vacation.id,
+            "title" : vacation.title,
             "start" : vacation.start,
             "end" : vacation.end,
         })
@@ -168,7 +181,7 @@ def add_vacation(request):
     vacation = Vacation.objects.create(
         userId=data['userId'], 
         title=data['title'], 
-        description=data['description'], start=data['start'], 
+        start=data['start'], 
         end=data['end']
     )
     vacation.save()
@@ -185,9 +198,9 @@ def update_vacation(request, id):
     data = JSONParser().parse(request)
     vacation = Vacation.objects.get(id=id)
     vacation.title = data['title']
-    vacation.description = data['description']
     vacation.start = data['start']
     vacation.end = data['end']
+    vacation.userId = data['userId']
     vacation.save()
     return JsonResponse({}, safe=False)
 
@@ -215,7 +228,7 @@ def get_requests(request, id):
 @csrf_exempt
 def add_request(request):
     data = JSONParser().parse(request)
-    request = Request.objects.create(
+    request = RequestVacation.objects.create(
         userId=data['userId'], 
         title=data['title'], 
         description=data['description'], 

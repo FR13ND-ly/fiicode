@@ -16,12 +16,4 @@
         <mat-datepicker #end></mat-datepicker>
     </mat-form-field>
 </section>
-<mat-form-field>
-    <mat-label>Utilizator</mat-label>
-    <mat-select [(ngModel)]="vacation.userId">
-        <mat-option *ngFor="let user of users$ | async" [value]="user.uid">
-            {{ user.name }}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
 <button mat-raised-button color="primary" mat-dialog-close (click)="onSave()">Adaugă</button>

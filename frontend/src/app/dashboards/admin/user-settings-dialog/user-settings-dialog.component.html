@@ -1,1 +1,14 @@
-<p>user-settings-dialog works!</p>
+<mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.user.name">
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Funcție</mat-label>
+    <input matInput [(ngModel)]="data.user.job">
+</mat-form-field>
+<mat-checkbox [(ngModel)]="data.user.admin">Administrator</mat-checkbox>
+<div class="wrapper">
+    <button mat-raised-button color="warn" mat-dialog-close (click)="onDelete()">Șterge</button>
+    <button mat-raised-button color="primary" mat-dialog-close (click)="onSave()">Salvează</button>
+    
+</div>

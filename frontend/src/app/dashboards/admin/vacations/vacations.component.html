@@ -1,1 +1,17 @@
-<p>vacations works!</p>
+<h1 class="page-title">Calendar</h1>
+<p class="page-subtitle">Puteți administra toate concediile</p>
+<button (click)="onAddVacation()" mat-raised-button color="primary" class="page-action">Adaugă concediu</button>
+<div class="page-content wrapper">
+    <article class="vacation card" *ngFor="let vacation of vacations$ | async">
+        <h2 class="vacation__title">{{ vacation.title }}</h2>
+        <div class="user">
+            <img class="user__image" [src]="vacation.user.imageUrl">
+            <span class="user__name">{{ vacation.user.username }}</span>
+        </div>
+        <p class="vacation__time">{{ vacation.start | date }} - {{ vacation.end | date }}</p>
+        <div class="wrapper">
+            <button mat-raised-button color="warn" (click)="onDeleteVacation(vacation)">Șterge</button>
+            <button mat-raised-button color="primary" (click)="onEditVacation(vacation)">Editează</button>
+        </div>
+    </article>
+</div>

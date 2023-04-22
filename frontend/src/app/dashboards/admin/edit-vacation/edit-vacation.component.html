@@ -1,24 +1,24 @@
 <mat-form-field>
     <mat-label>Titlu</mat-label>
-    <input matInput [(ngModel)]="vacation.title">
+    <input matInput [(ngModel)]="data.vacation.title">
 </mat-form-field>
 <section class="wrapper">
     <mat-form-field appearance="fill">
         <mat-label>Se începe pe</mat-label>
-        <input matInput [matDatepicker]="start" [max]="vacation.end" [(ngModel)]="vacation.start">
+        <input matInput [matDatepicker]="start" [max]="data.vacation.end" [(ngModel)]="data.vacation.start">
         <mat-datepicker-toggle matIconSuffix [for]="start"></mat-datepicker-toggle>
         <mat-datepicker #start></mat-datepicker>
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Se termină pe</mat-label>
-        <input matInput [matDatepicker]="end" [min]="vacation.start" [(ngModel)]="vacation.end">
+        <input matInput [matDatepicker]="end" [min]="data.vacation.start" [(ngModel)]="data.vacation.end">
         <mat-datepicker-toggle matIconSuffix [for]="end"></mat-datepicker-toggle>
         <mat-datepicker #end></mat-datepicker>
     </mat-form-field>
 </section>
 <mat-form-field>
     <mat-label>Utilizator</mat-label>
-    <mat-select [(ngModel)]="vacation.userId">
+    <mat-select [(ngModel)]="data.vacation.userId">
         <mat-option *ngFor="let user of users$ | async" [value]="user.uid">
             {{ user.name }}
         </mat-option>

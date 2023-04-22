@@ -1,18 +1,18 @@
 <ng-container *ngIf="dashboard$ | async as dashboard">
-    <h1 class="page-title">Hi, {{ dashboard.name }}</h1>
-    <p class="page-subtitle">Astazi aveti <span class="mark" routerLink="/dashboard/admin/users">{{ dashboard.vacationsToday === 1 ? dashboard.vacationsToday + ' cerere de concediu' : dashboard.vacationsToday + ' cereri de concediu'}}</span></p>
+    <h1 class="page-title">Salut</h1>
+    <p class="page-subtitle">La moment, <span class="mark" routerLink="/dashboard/admin/users"> {{ dashboard.requestsCount }} cereri de concediu</span></p>
     <div class="page-content wrapper">
         <section class="info-pane card" routerLink="/dashboard/admin/users">
             <div class="info-pane__content">
                 <mat-icon class="info-pane__icon">supervised_user_circle</mat-icon>
                 <div>
                     <span class="info-pane__title">Numar angajati</span>
-                    <h2 class="info-pane__count">{{ dashboard.employeesCount }}</h2>
+                    <h2 class="info-pane__count">{{ dashboard.usersCount }}</h2>
                 </div>
             </div>
             <a class="info-pane__link">Vezi detalii despre angajati ></a>
         </section>
-        <section class="info-pane card" routerLink="/dashboard/doctor/patients">
+        <section class="info-pane card" routerLink="/dashboard/admin/calendar">
             <div class="info-pane__content">
                 <mat-icon class="info-pane__icon">calendar_month</mat-icon>
                 <div>
@@ -20,17 +20,17 @@
                     <h2 class="info-pane__count">{{ dashboard.documentsCount }}</h2>
                 </div>
             </div>
-            <a class="info-pane__link" >Manage your schedule ></a>
+            <a class="info-pane__link" >Administrează calendarul ></a>
         </section>
-        <section class="info-pane card" routerLink="/dashboard/doctor/patients">
+        <section class="info-pane card" routerLink="/dashboard/admin/files">
             <div class="info-pane__content">
                 <mat-icon class="info-pane__icon">edit_document</mat-icon>
                 <div>
-                    <span class="info-pane__title">Total consultations</span>
+                    <span class="info-pane__title">Consultații</span>
                     <h2 class="info-pane__count">{{ dashboard.vacationsCount }}</h2>
                 </div>
             </div>
-            <a class="info-pane__link">Manage consultations ></a>
+            <a class="info-pane__link">Vezi toate documentele ></a>
         </section>
     </div>
 </ng-container>

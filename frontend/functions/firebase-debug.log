@@ -1,0 +1,106 @@
+[debug] [2023-04-22T17:07:24.793Z] ----------------------------------------------------------------------
+[debug] [2023-04-22T17:07:24.797Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\motri\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions --debug
+[debug] [2023-04-22T17:07:24.799Z] CLI Version:   11.21.0
+[debug] [2023-04-22T17:07:24.799Z] Platform:      win32
+[debug] [2023-04-22T17:07:24.799Z] Node Version:  v18.16.0
+[debug] [2023-04-22T17:07:24.801Z] Time:          Sat Apr 22 2023 20:07:24 GMT+0300 (Eastern European Summer Time)
+[debug] [2023-04-22T17:07:24.802Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-22T17:07:24.937Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-22T17:07:24.942Z] > authorizing via signed-in user (motricala44@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2023-04-22T17:07:24.976Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-22T17:07:24.979Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-04-22T17:07:24.996Z] [hub] writing locator at C:\Users\motri\AppData\Local\Temp\hub-fiicode-d41aa.json
+[debug] [2023-04-22T17:07:25.063Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-22T17:07:25.064Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-22T17:07:25.065Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage\u001b[22m"}}
+[info] +  functions: Using node@18 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@18 from host."}}
+[debug] [2023-04-22T17:07:25.133Z] defaultcredentials: writing to file C:\Users\motri\AppData\Roaming\firebase\motricala44_gmail_com_application_default_credentials.json
+[debug] [2023-04-22T17:07:25.141Z] Setting GAC to C:\Users\motri\AppData\Roaming\firebase\motricala44_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\motri\\AppData\\Roaming\\firebase\\motricala44_gmail_com_application_default_credentials.json"}}
+[debug] [2023-04-22T17:07:25.147Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fiicode-d41aa/adminSdkConfig [none]
+[debug] [2023-04-22T17:07:25.602Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fiicode-d41aa/adminSdkConfig 200
+[debug] [2023-04-22T17:07:25.604Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fiicode-d41aa/adminSdkConfig {"projectId":"fiicode-d41aa","databaseURL":"https://fiicode-d41aa-default-rtdb.europe-west1.firebasedatabase.app","storageBucket":"fiicode-d41aa.appspot.com"}
+[debug] [2023-04-22T17:07:25.661Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-04-22T17:07:25.663Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-04-22T17:07:25.664Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\motri\\.cache\\firebase\\emulators\\ui-v1.11.2\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\motri\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.2\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-04-22T17:07:25.883Z] C:\Users\motri\.cache\firebase\emulators\ui-v1.11.2\server\server.js:569
+        re"use strict";
+          ^^^^^^^^^^^^
+
+SyntaxError: Unexpected string
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1176:20)
+    at Module._compile (node:internal/modules/cjs/loader:1218:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)
+    at Module.load (node:internal/modules/cjs/loader:1117:32)
+    at Module._load (node:internal/modules/cjs/loader:958:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47
+
+Node.js v18.16.0
+ {"metadata":{"emulator":{"name":"ui"},"message":"C:\\Users\\motri\\.cache\\firebase\\emulators\\ui-v1.11.2\\server\\server.js:569\r\n        re\"use strict\";\r\n          ^^^^^^^^^^^^\r\n\r\nSyntaxError: Unexpected string\r\n    at internalCompileFunction (node:internal/vm:73:18)\r\n    at wrapSafe (node:internal/modules/cjs/loader:1176:20)\r\n    at Module._compile (node:internal/modules/cjs/loader:1218:27)\r\n    at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)\r\n    at Module.load (node:internal/modules/cjs/loader:1117:32)\r\n    at Module._load (node:internal/modules/cjs/loader:958:12)\r\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\r\n    at node:internal/main/run_main_module:23:47\r\n\r\nNode.js v18.16.0\r\n"}}
+[warn] !  ui: Fatal error occurred: 
+   Emulator UI has exited with code: 1, 
+   stopping all running emulators {"metadata":{"emulator":{"name":"ui"},"message":"Fatal error occurred: \n   Emulator UI has exited with code: 1, \n   stopping all running emulators"}}
+[info] i  ui: Stopping Emulator UI {"metadata":{"emulator":{"name":"ui"},"message":"Stopping Emulator UI"}}
+[debug] [2023-04-22T17:07:29.911Z] Emulator UI: Unable to terminate process (PID=7616) {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI: Unable to terminate process (PID=7616)"}}
+[warn] !  ui: Error stopping Emulator UI {"metadata":{"emulator":{"name":"ui"},"message":"Error stopping Emulator UI"}}
+[info] i  functions: Stopping Functions Emulator {"metadata":{"emulator":{"name":"functions"},"message":"Stopping Functions Emulator"}}
+[info] i  eventarc: Stopping Eventarc Emulator {"metadata":{"emulator":{"name":"eventarc"},"message":"Stopping Eventarc Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[debug] [2023-04-22T17:24:01.109Z] ----------------------------------------------------------------------
+[debug] [2023-04-22T17:24:01.114Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\motri\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions --debug
+[debug] [2023-04-22T17:24:01.115Z] CLI Version:   11.21.0
+[debug] [2023-04-22T17:24:01.116Z] Platform:      win32
+[debug] [2023-04-22T17:24:01.116Z] Node Version:  v18.16.0
+[debug] [2023-04-22T17:24:01.133Z] Time:          Sat Apr 22 2023 20:24:01 GMT+0300 (Eastern European Summer Time)
+[debug] [2023-04-22T17:24:01.133Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-22T17:24:01.311Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-22T17:24:01.315Z] > authorizing via signed-in user (motricala44@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2023-04-22T17:24:01.348Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-22T17:24:01.351Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-04-22T17:24:01.368Z] [hub] writing locator at C:\Users\motri\AppData\Local\Temp\hub-fiicode-d41aa.json
+[debug] [2023-04-22T17:24:01.426Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-22T17:24:01.429Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-22T17:24:01.431Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage\u001b[22m"}}
+[info] +  functions: Using node@18 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@18 from host."}}
+[debug] [2023-04-22T17:24:01.505Z] defaultcredentials: writing to file C:\Users\motri\AppData\Roaming\firebase\motricala44_gmail_com_application_default_credentials.json
+[debug] [2023-04-22T17:24:01.514Z] Setting GAC to C:\Users\motri\AppData\Roaming\firebase\motricala44_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\motri\\AppData\\Roaming\\firebase\\motricala44_gmail_com_application_default_credentials.json"}}
+[debug] [2023-04-22T17:24:01.522Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fiicode-d41aa/adminSdkConfig [none]
+[debug] [2023-04-22T17:24:02.145Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fiicode-d41aa/adminSdkConfig 200
+[debug] [2023-04-22T17:24:02.146Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fiicode-d41aa/adminSdkConfig {"projectId":"fiicode-d41aa","databaseURL":"https://fiicode-d41aa-default-rtdb.europe-west1.firebasedatabase.app","storageBucket":"fiicode-d41aa.appspot.com"}
+[debug] [2023-04-22T17:24:02.185Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-04-22T17:24:02.186Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-04-22T17:24:02.187Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\motri\\.cache\\firebase\\emulators\\ui-v1.11.2\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\motri\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.2\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-04-22T17:24:02.456Z] C:\Users\motri\.cache\firebase\emulators\ui-v1.11.2\server\server.js:569
+        re"use strict";
+          ^^^^^^^^^^^^
+
+SyntaxError: Unexpected string
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1176:20)
+    at Module._compile (node:internal/modules/cjs/loader:1218:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)
+    at Module.load (node:internal/modules/cjs/loader:1117:32)
+    at Module._load (node:internal/modules/cjs/loader:958:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47
+
+Node.js v18.16.0
+ {"metadata":{"emulator":{"name":"ui"},"message":"C:\\Users\\motri\\.cache\\firebase\\emulators\\ui-v1.11.2\\server\\server.js:569\r\n        re\"use strict\";\r\n          ^^^^^^^^^^^^\r\n\r\nSyntaxError: Unexpected string\r\n    at internalCompileFunction (node:internal/vm:73:18)\r\n    at wrapSafe (node:internal/modules/cjs/loader:1176:20)\r\n    at Module._compile (node:internal/modules/cjs/loader:1218:27)\r\n    at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)\r\n    at Module.load (node:internal/modules/cjs/loader:1117:32)\r\n    at Module._load (node:internal/modules/cjs/loader:958:12)\r\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\r\n    at node:internal/main/run_main_module:23:47\r\n\r\nNode.js v18.16.0\r\n"}}
+[warn] !  ui: Fatal error occurred: 
+   Emulator UI has exited with code: 1, 
+   stopping all running emulators {"metadata":{"emulator":{"name":"ui"},"message":"Fatal error occurred: \n   Emulator UI has exited with code: 1, \n   stopping all running emulators"}}
+[info] i  ui: Stopping Emulator UI {"metadata":{"emulator":{"name":"ui"},"message":"Stopping Emulator UI"}}
+[debug] [2023-04-22T17:24:06.485Z] Emulator UI: Unable to terminate process (PID=13896) {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI: Unable to terminate process (PID=13896)"}}
+[warn] !  ui: Error stopping Emulator UI {"metadata":{"emulator":{"name":"ui"},"message":"Error stopping Emulator UI"}}
+[info] i  functions: Stopping Functions Emulator {"metadata":{"emulator":{"name":"functions"},"message":"Stopping Functions Emulator"}}
+[info] i  eventarc: Stopping Eventarc Emulator {"metadata":{"emulator":{"name":"eventarc"},"message":"Stopping Eventarc Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}

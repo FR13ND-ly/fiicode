@@ -3,6 +3,8 @@
 :host {
     width: 100%;
     gap: .5rem;
+    padding: 1rem;
+    box-sizing: border-box;
     display: flex;
     justify-content: right;
     text-align: right;
@@ -12,8 +14,11 @@
     flex-direction: column;
     justify-content: space-around;
     height: 100%;
-    &__type {
+    &__name {
         font-weight: bold;
+    }
+    &__job {
+        font-size: .8rem;
         text-transform: capitalize;
     }
 }

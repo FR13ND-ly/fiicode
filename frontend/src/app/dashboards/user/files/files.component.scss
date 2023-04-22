@@ -21,12 +21,17 @@
     background: #555;
 }
 
-
+h2 {
+    margin: 0;
+}
 
 .carousel {
     overflow: auto;
     display: flex;
+    box-sizing: border-box;
     width: 70vw;
+    padding-top: 0;
+    padding: .5rem;
 }
 
 .files-bar {
@@ -35,65 +40,14 @@
     margin-bottom: 1rem;
 }
 
-$icon-size: 6.2rem;
-
-.info-pane {
+.file {
     display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    padding-inline: 2rem;
-    margin-inline-end: 2rem;
-    cursor: pointer;
-
-    &__icon {
-        font-size: $icon-size;
-        height: $icon-size;
-        width: $icon-size;
-    }
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        gap: 2rem;
-    }
-
-    &__title {
-        font-size: .8rem;
-        line-height: 1;
-    }
-
-    &__count {
-        margin: 0;
-        font-size: 2.4rem;
-    }
-
-    &__link {
-        margin-left: .5rem;
-        color: inherit;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
-
-.wrapper {
-    display: flex;
-    padding: 2rem;
+    justify-content: center;
     flex-direction: column;
-
-    @include mq(small) {
-        width: fit-content;
-        flex-direction: column;
-    }
-
-    width: 100%;
+    text-align: center;
+    cursor: pointer;
 }
+
 
 .mark {
     color: var(--primary-color);

@@ -1,55 +1,11 @@
-<div class="wrapper">
-    <div class="files-bar">
-        <h2>Fisiere recente</h2>
-    </div>
+<div class="v-wrapper">
+    <h2>Fisiere recente</h2>
     <div class="carousel">
-        <section class="info-pane card" routerLink="/">
-            <div class="info-pane__content">
+        <article class="file" *ngFor="let file of files$ | async" (click)="onOpenFile(file)">
+            <div class="file__icon card">
                 <mat-icon class="info-pane__icon">picture_as_pdf</mat-icon>
-                <span class="info-pane__title">Numar documente interne</span>
             </div>
-        </section>
-        <section class="info-pane card" routerLink="/">
-            <div class="info-pane__content">
-                <mat-icon class="info-pane__icon">picture_as_pdf</mat-icon>
-                <span class="info-pane__title">Numar documente interne</span>
-            </div>
-        </section>
-        <section class="info-pane card" routerLink="/">
-            <div class="info-pane__content">
-                <mat-icon class="info-pane__icon">picture_as_pdf</mat-icon>
-                <span class="info-pane__title">Numar documente interne</span>
-            </div>
-        </section>
-        <section class="info-pane card" routerLink="/">
-            <div class="info-pane__content">
-                <mat-icon class="info-pane__icon">picture_as_pdf</mat-icon>
-                <span class="info-pane__title">Numar documente interne</span>
-            </div>
-        </section>
-        <section class="info-pane card" routerLink="/">
-            <div class="info-pane__content">
-                <mat-icon class="info-pane__icon">picture_as_pdf</mat-icon>
-                <span class="info-pane__title">Numar documente interne</span>
-            </div>
-        </section>
-        <section class="info-pane card" routerLink="/">
-            <div class="info-pane__content">
-                <mat-icon class="info-pane__icon">picture_as_pdf</mat-icon>
-                <span class="info-pane__title">Numar documente interne</span>
-            </div>
-        </section>
-        <section class="info-pane card" routerLink="/">
-            <div class="info-pane__content">
-                <mat-icon class="info-pane__icon">picture_as_pdf</mat-icon>
-                <span class="info-pane__title">Numar documente interne</span>
-            </div>
-        </section>
-        <section class="info-pane card" routerLink="/">
-            <div class="info-pane__content">
-                <mat-icon class="info-pane__icon">picture_as_pdf</mat-icon>
-                <span class="info-pane__title">Numar documente interne</span>
-            </div>
-        </section>
+            <span class="info-pane__title">{{ file.title }}</span>
+        </article>
     </div>
 </div>

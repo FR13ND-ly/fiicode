@@ -12,11 +12,7 @@ export class HeaderComponent {
 
   constructor(private authService: AuthService, private router : Router) { }
   
-  user$ = of({
-    name: "Mihai",
-    type: "User",
-    imageUrl: "aaa"
-  })
+  user$ = this.authService.getUserUpdateListener()
 
   onLogout() {
     this.authService.logout()

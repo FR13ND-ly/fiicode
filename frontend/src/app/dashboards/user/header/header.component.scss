@@ -1,21 +1,15 @@
 @use 'src/assets/scss/utils' as *;
 
-:host {
-    // width: 100%;
-    gap: .5rem;
-    display: flex;
-    margin: 1rem;
-    // justify-content: center;
-    // text-align: right;
-    // padding: 1rem;
-}
 .user {
     display: flex;
     flex-direction: column;
-    // justify-content: space-around;
+    justify-content: space-around;
     height: 100%;
-    &__type {
+    &__name {
         font-weight: bold;
+    }
+    &__job {
+        font-size: .8rem;
         text-transform: capitalize;
     }
 }

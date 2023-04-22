@@ -1,0 +1,22 @@
+:host {
+    position: relative;
+}
+
+.vacation {
+    display: flex;
+    justify-content: space-between;
+}
+
+h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-top: .5rem;
+}
+
+.page-action {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+}

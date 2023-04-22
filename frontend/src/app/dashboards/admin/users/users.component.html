@@ -2,21 +2,49 @@
 <p class="page-subtitle">Aici poți administra angajații</p>
 <div class="page-content wrapper">
     <div class="users-list" *ngIf="users$ | async as users">
-        <img 
-        class="muser" 
-        [src]="user.imageUrl" 
-        *ngFor="let user of users; let i = index"
-        [class.muser--selected]="i == (selectedIndex$ | async)"
-        (click)="selectedIndex$.next(i)">
+        <article [matBadge]="user.requests" *ngFor="let user of users; let i = index">
+            <img 
+            class="muser"
+            [src]="user.imageUrl" 
+            [class.muser--selected]="i == (selectedIndex$ | async)"
+            (click)="selectedIndex$.next(i)">
+        </article>
     </div>
-    <div *ngIf="user$ | async as user">
-        <section class="user card--outline">
-            <img class="user__image" [src]="user.imageUrl">
-            <div class="user__info">
-                <p class="user__job">{{ user.job }}</p>
-                <p class="user__name">{{ user.name }}</p>
-                <p class="user__email">{{ user.email }}</p>
+    <div class="wrapper" *ngIf="user$ | async as user">
+        <section>
+            <div class="user card--outline">
+                <img class="user__image" [src]="user.imageUrl">
+                <div class="user__info">
+                    <p class="user__job">{{ user.job }}</p>
+                    <p class="user__name">{{ user.name }}</p>
+                    <p class="user__email">{{ user.email }}</p>
+                </div>
+                <button mat-icon-button (click)="onEditUser(user)"><mat-icon>edit</mat-icon></button>
             </div>
+            <div>
+                <h2>Cereri de concediu</h2>
+                <div class="v-wrapper">
+                    <div class="request card" *ngFor="let request of requests$ | async">
+                        <div>
+                            <h3>{{request.title}}</h3>
+                            <p>{{request.start | date }} - {{ request.end | date }}</p>
+                        </div>
+                        <section>
+                            <button mat-icon-button (click)="onApprove(request)"><mat-icon>done</mat-icon></button>
+                            <button mat-icon-button (click)="onDecline(request)"><mat-icon>close</mat-icon></button>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="v-wrapper">
+            <h2 class="title">Concedii</h2>
+            <article class="vacation card" *ngFor="let vacation of calendar$ | async">
+                <div>
+                    <h3>{{ vacation.title }}</h3>
+                    <p>{{ vacation.start | date }} - {{ vacation.end | date }}</p>
+                </div>
+            </article>
         </section>
     </div>
 </div>

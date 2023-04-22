@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { of } from 'rxjs';
+import { AuthService } from '../../data-access/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,9 +13,8 @@ import { of } from 'rxjs';
   ]
 })
 export class HeaderComponent {
-  user$ = of({
-    name: "Alin",
-    type: "Admin",
-    imageUrl: "aaa"
-  })
+  
+  constructor(private authService : AuthService) { }
+  
+  user$ = this.authService.getUserUpdateListener()
 }

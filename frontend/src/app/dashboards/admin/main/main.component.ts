@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { AdminService } from 'src/app/shared/data-access/admin.service';
 
 @Component({
   selector: 'app-main',
@@ -7,11 +8,8 @@ import { of } from 'rxjs';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  dashboard$ = of({
-    name: "ADMIN",
-    employeesCount: 99,
-    documentsCount: 150,
-    vacationsCount: 2,
-    vacationsToday: 1
-  })
+
+  constructor(private adminService: AdminService) { }
+
+  dashboard$ : Observable<any> = this.adminService.main()
 }

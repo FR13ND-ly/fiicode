@@ -5,9 +5,10 @@ import { ChatComponent } from './chat/chat.component';
 import { VacationsComponent } from './vacations/vacations.component';
 import { FilesComponent } from './files/files.component';
 import { RouterModule } from '@angular/router';
-import { AddVacationDialogComponent } from './add-vacation-dialog/add-vacation-dialog.component';
-import { MatIconModule  } from '@angular/material/icon';
 import { HeaderComponent } from './header/header.component';
+import { AddRequestDialogComponent } from './add-request-dialog/add-request-dialog.component';
+import { MaterialModule } from 'src/app/shared/feature/material.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,15 +17,16 @@ import { HeaderComponent } from './header/header.component';
         ChatComponent,
         VacationsComponent,
         FilesComponent,
-        AddVacationDialogComponent,
         HeaderComponent,
+        AddRequestDialogComponent,
     ],
     imports: [
         CommonModule,
         RouterModule.forChild([
             { path: '', component: ShellComponent }
         ]),
-        MatIconModule
+        MaterialModule,
+        FormsModule
     ]
 })
 export class UserModule { }

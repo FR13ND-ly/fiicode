@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject, Observable, map, switchMap } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { BehaviorSubject, Observable, map, of, switchMap } from 'rxjs';
 import { AdminService } from 'src/app/shared/data-access/admin.service';
+import { UserSettingsDialogComponent } from '../user-settings-dialog/user-settings-dialog.component';
 
 @Component({
   selector: 'app-users',
@@ -9,7 +11,7 @@ import { AdminService } from 'src/app/shared/data-access/admin.service';
 })
 export class UsersComponent {
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private dialog: MatDialog) { }
 
   users$ : Observable<any> = this.adminService.getUsers()
   selectedIndex$ = new BehaviorSubject(0)
@@ -19,4 +21,37 @@ export class UsersComponent {
       map((users : any) => users[index])
     ))
   )
+
+  requests$ : Observable<any> = this.user$.pipe(
+    switchMap((user : any) => of([
+      {
+        id: 1,
+        title: 'Vacation',
+        color: { primary: '#e3bc08', secondary: '#FDF1BA' },
+        start: new Date(2020, 1, 1),
+        end: new Date(2020, 1, 5),
+      }
+    ]))
+  )
+
+  calendar$ : Observable<any> = this.user$.pipe(
+    switchMap((user : any) => this.adminService.getVacations(user.uid))
+  )
+
+  onDecline(request : any) {
+    this.adminService.deleteRequest(request.id).subscribe()
+  }
+
+  onApprove(request : any) {
+    this.adminService.approveRequest(request.id).subscribe()
+  }
+
+
+  onEditUser(user : any) {
+    this.dialog.open(UserSettingsDialogComponent, {
+      data: {
+        user
+      }
+    })
+  }
 }

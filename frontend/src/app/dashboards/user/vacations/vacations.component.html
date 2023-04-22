@@ -1,1 +1,10 @@
-<p>vacations works!</p>
+<h1 class="page-title">Concedii</h1>
+<button class="page-action" mat-raised-button color="primary" (click)="onAddRequest()">Solicită concediu</button>
+<div class="page-content wrapper">
+    <article class="vacation card" *ngFor="let vacation of vacations$ | async">
+        <div>
+            <h3>{{ vacation.title }}</h3>
+            <p>{{ vacation.start | date }} - {{ vacation.end | date }}</p>
+        </div>
+    </article>
+</div>

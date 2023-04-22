@@ -22,6 +22,11 @@ export class SidebarComponent {
       link: '/users'
     },
     {
+      name: 'Calendar',
+      icon: 'event',
+      link: '/calendar'
+    },
+    {
       name: 'Documente Interne',
       icon: 'folder',
       link: '/files'

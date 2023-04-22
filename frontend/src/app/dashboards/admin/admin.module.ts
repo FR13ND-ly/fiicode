@@ -5,18 +5,16 @@ import { MainComponent } from './main/main.component';
 import { UsersComponent } from './users/users.component';
 import { FilesComponent } from './files/files.component';
 import { ChatComponent } from './chat/chat.component';
-import { UserVacationsDialogComponent } from './user-vacations-dialog/user-vacations-dialog.component';
 import { UserSettingsDialogComponent } from './user-settings-dialog/user-settings-dialog.component';
-import { UploadFileDialogComponent } from './upload-file-dialog/upload-file-dialog.component';
 import { InviteUserDialogComponent } from './invite-user-dialog/invite-user-dialog.component';
 import { RouterModule } from '@angular/router';
 import { VacationsComponent } from './vacations/vacations.component';
 import { AddVacationsDialogComponent } from './add-vacations-dialog/add-vacations-dialog.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from 'src/app/shared/ui/header/header.component';
-import { MatIconModule  } from '@angular/material/icon';
 import { MaterialModule } from 'src/app/shared/feature/material.module';
 import { FormsModule } from '@angular/forms';
+import { EditVacationComponent } from './edit-vacation/edit-vacation.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +23,12 @@ import { FormsModule } from '@angular/forms';
     UsersComponent,
     FilesComponent,
     ChatComponent,
-    UserVacationsDialogComponent,
     UserSettingsDialogComponent,
-    UploadFileDialogComponent,
     InviteUserDialogComponent,
     VacationsComponent,
     AddVacationsDialogComponent,
     SidebarComponent,
+    EditVacationComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +40,7 @@ import { FormsModule } from '@angular/forms';
         { path: 'users', component: UsersComponent },
         { path: 'files', component: FilesComponent },
         { path: 'chat', component: ChatComponent },
-        { path: 'vacations', component: VacationsComponent },
+        { path: 'calendar', component: VacationsComponent },
       ]}
     ]),
     MaterialModule
