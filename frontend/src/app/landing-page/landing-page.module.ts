@@ -1,20 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroComponent } from './hero/hero.component';
-import { ShellComponent } from './shell/shell.component';
 import { RouterModule } from '@angular/router';
-
-
+import { LandingPageComponent } from './landing-page.component';
 
 @NgModule({
   declarations: [
-    HeroComponent,
-    ShellComponent
+    LandingPageComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: '', component: ShellComponent }
+      { path: '', component: LandingPageComponent }
     ])
   ]
 })

@@ -6,7 +6,7 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
     </p>
-    <a href="/dashboard" class="main__button">Access Dashboard</a>
+    <button (click)="onLogin(vs.user)" class="main__button" *ngIf="{ user : user$ | async} as vs">Access Dashboard</button>
     <div class="footer">
         <p>©2023 by MAG and Mihai Radu. All rights reserved</p>
     </div>

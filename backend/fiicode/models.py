@@ -8,22 +8,24 @@ class User(models.Model):
     username = models.CharField(max_length=255)
     avatarId = models.PositiveIntegerField(null=True)
     email = models.EmailField(max_length=255, unique=True)
-    phone = models.CharField(max_length=255)
-    job = models.CharField(max_length=255)
+    job = models.CharField(max_length=255, default="Software Engineer")
     date = models.DateTimeField(default=timezone.now)
 
 class Vacation(models.Model):
-    date = models.DateTimeField(default=timezone.now)
-    start = models.DateTimeField()
-    end = models.DateTimeField()
-    description = models.TextField(default="")
-
-class Document(models.Model):
+    userId = models.PositiveIntegerField()
     title = models.CharField(max_length=255)
     description = models.TextField(default="")
+    start = models.DateField()
+    end = models.DateField()
     date = models.DateTimeField(default=timezone.now)
-    fileId = models.PositiveIntegerField(null=True)
 
+class Document(models.Model):
+    userId = models.PositiveIntegerField()
+    title = models.CharField(max_length=255)
+    description = models.TextField(default="")
+    fileId = models.PositiveIntegerField(null=True)
+    date = models.DateTimeField(default=timezone.now)
+    
 class File(models.Model):
     file = models.FileField(blank=False, null=False)
     date = models.DateTimeField(default=timezone.now)

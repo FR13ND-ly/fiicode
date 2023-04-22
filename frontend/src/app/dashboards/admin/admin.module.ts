@@ -16,7 +16,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from 'src/app/shared/ui/header/header.component';
 import { MatIconModule  } from '@angular/material/icon';
 
-
 @NgModule({
   declarations: [
     ShellComponent,
@@ -31,10 +30,14 @@ import { MatIconModule  } from '@angular/material/icon';
     VacationsComponent,
     AddVacationsDialogComponent,
     SidebarComponent,
+<<<<<<< HEAD
     HeaderComponent,
+=======
+>>>>>>> 0ff914dc2d3ca444e91c556b98f713180ae2e9a7
   ],
   imports: [
     CommonModule,
+    HeaderComponent,
     RouterModule.forChild([
       { path: '', component: ShellComponent }
     ]),
