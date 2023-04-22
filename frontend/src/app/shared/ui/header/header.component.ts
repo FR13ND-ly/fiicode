@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { of } from 'rxjs';
 
@@ -5,7 +6,10 @@ import { of } from 'rxjs';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  standalone: true
+  standalone: true,
+  imports: [
+    CommonModule
+  ]
 })
 export class HeaderComponent {
   user$ = of({
