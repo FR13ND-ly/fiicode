@@ -89,4 +89,7 @@ export class AdminService {
     return this.http.put(`${this.APIUrl}vacations/update/${vacation.id}/`, vacation)
   }
 
+  onChat(data : any) {
+    return this.http.post(this.APIUrl + 'chat/', data)
+  }
 }

@@ -1,20 +1,25 @@
 <section class="chat-box">
 <div class="App">
-    <ng-container *ngIf="request">
-        <div class="message sent">
-            <img src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'>
-            <p>{{ request }}</p>
-        </div>
-    </ng-container>
-    <ng-container *ngIf="response">
-        <div class="message received">
-            <img src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'>
-            <p>{{ response }}</p>
-        </div>
-    </ng-container>
+    <section class="conversation">
+        <ng-container *ngIf="request">
+            <div class="message sent">
+                <img src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'>
+                <p>{{ request }}</p>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="response">
+            <div class="message received">
+                <img src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'>
+                <p>{{ response }}</p>
+            </div>
+        </ng-container>
+    </section>
     <div class="form">
-        <input placeholder="Say something." [(ngModel)]="text"/>
-        <button type="submit" (click)="onMessage()">></button>
+        <mat-form-field appearance="outline">
+            <mat-label>Scrie un mesaj</mat-label>
+            <input matInput placeholder="Scrie un mesaj" [(ngModel)]="text"/>
+            <mat-icon (click)="onMessage()" matSuffix>send</mat-icon>
+        </mat-form-field>
     </div>
 </div>
 </section>
