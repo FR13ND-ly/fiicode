@@ -30,10 +30,10 @@ import { HeaderComponent } from 'src/app/shared/ui/header/header.component';
     VacationsComponent,
     AddVacationsDialogComponent,
     SidebarComponent,
-    HeaderComponent
   ],
   imports: [
     CommonModule,
+    HeaderComponent,
     RouterModule.forChild([
       { path: '', component: ShellComponent }
     ])
