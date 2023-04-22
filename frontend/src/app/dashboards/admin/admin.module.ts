@@ -16,7 +16,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from 'src/app/shared/ui/header/header.component';
 
 
-
 @NgModule({
   declarations: [
     ShellComponent,
