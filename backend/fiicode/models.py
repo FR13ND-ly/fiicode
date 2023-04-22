@@ -28,7 +28,7 @@ class RequestVacation(models.Model):
     date = models.DateTimeField(default=timezone.now)
 
 class Document(models.Model):
-    userId = models.PositiveIntegerField()
+    userId = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
     type = models.CharField(max_length=255, default="pdf")
     fileId = models.PositiveIntegerField(null=True)

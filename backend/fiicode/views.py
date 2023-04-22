@@ -95,8 +95,8 @@ def get_documents(request):
     response = []
     for document in documents:
         user = {
-            "username" : User.objects.get(id=document.userId).username,
-            "imageUrl" : get_file(User.objects.get(id=document.userId).avatarId),
+            "username" : User.objects.get(uid=document.userId).username,
+            "imageUrl" : get_file(User.objects.get(uid=document.userId).avatarId),
         }
         response.append({
             "id" : document.id,
@@ -114,7 +114,7 @@ def add_document(request):
         userId=data['userId'], 
         title=data['title'], 
         fileId=data["fileId"],
-        type=get_file(data['file']).split(".")[-1]
+        type=get_file(data['fileId']).split(".")[-1]
     )
     document.save()
     return JsonResponse(document.id, safe=False)
