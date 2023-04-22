@@ -14,7 +14,7 @@ import { VacationsComponent } from './vacations/vacations.component';
 import { AddVacationsDialogComponent } from './add-vacations-dialog/add-vacations-dialog.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from 'src/app/shared/ui/header/header.component';
-
+import { MatIconModule  } from '@angular/material/icon';
 
 
 @NgModule({
@@ -31,13 +31,14 @@ import { HeaderComponent } from 'src/app/shared/ui/header/header.component';
     VacationsComponent,
     AddVacationsDialogComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild([
       { path: '', component: ShellComponent }
-    ])
+    ]),
+    MatIconModule
   ]
 })
 export class AdminModule { }
