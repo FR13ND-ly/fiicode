@@ -14,6 +14,10 @@ from fiicode.models import User, Vacation, Document, File, RequestVacation
 URL="http://127.0.0.1:8000/"
 
 
+import json
+import openai
+
+
 def main(request):
     users_count = User.objects.all().count()
     vacations_count = Vacation.objects.all().count()
@@ -263,7 +267,27 @@ def add_file(imageUrl, uid):
 def get_file(id):
     return URL + "media/" + os.path.basename(File.objects.get(id=id).file.name)
 
+openai.api_key = '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'
 
 @csrf_exempt
 def chat(request):
+     # Check if request is a POST and has a body
+    if request.method == 'POST' and request.body:
+        # Parse the JSON body of the request
+        body = json.loads(request.body)
+        # Check if the body contains a "prompt" key
+        if 'prompt' in body:
+            # Generate text from the prompt using ChatGPT API
+            response = openai.Completion.create(
+              engine="davinci", # Specify the GPT-3 model to use
+              prompt=body['prompt'],
+              max_tokens=1024, # Set the maximum length of the generated text
+              n=1, # Generate one response
+              stop=None, # Don't specify a stopping sequence
+              temperature=0.5 # Set the "creativity" of the generated text
+            )
+            # Return the generated text as a JSON response
+            return JsonResponse({'response': response.choices[0].text})
+    # If the request is not valid, return a 400 Bad Request response
+    return JsonResponse({'error': 'Invalid request.'}, status=400)
     return
