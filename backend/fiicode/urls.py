@@ -24,7 +24,7 @@ urlpatterns = [
     path('vacations/update/<int:id>/', views.update_vacation),
     path('vacations/delete/<int:id>/', views.delete_vacation),
     #requests
-    path('requests/get/<str:id>/', views.get_requests),
+    path('requests/get/<str:uid>/', views.get_requests),
     path('requests/add/', views.add_request),
     path('requests/delete/<int:id>/', views.delete_request),
     path('requests/approve/<int:id>/', views.approve_request),

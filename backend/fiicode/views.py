@@ -211,19 +211,18 @@ def update_vacation(request, id):
 
 #requests
 @csrf_exempt
-def get_requests(request, id):
-    requests = Request.objects.filter(userId=id)
+def get_requests(request, uid):
+    requests = RequestVacation.objects.filter(userId=uid)
     response = []
     for request in requests:
         user = {
-            "username" : User.objects.get(id=request.userId).username,
-            "imageUrl" : get_file(User.objects.get(id=request.userId).avatarId),
+            "username" : User.objects.get(uid=request.userId).username,
+            "imageUrl" : get_file(User.objects.get(uid=request.userId).avatarId),
         }
         response.append({
             "id" : request.id,
             "user" : user,
             "title" : request.title,
-            "description" : request.description,
             "start" : request.start,
             "end" : request.end,
         })
@@ -279,27 +278,17 @@ def add_file(imageUrl, uid):
 def get_file(id):
     return URL + "media/" + os.path.basename(File.objects.get(id=id).file.name)
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 @csrf_exempt
 def chat(request):
-     # Check if request is a POST and has a body
-    if request.method == 'POST' and request.body:
-        # Parse the JSON body of the request
-        body = json.loads(request.body)
-        # Check if the body contains a "prompt" key
-        if 'prompt' in body:
-            # Generate text from the prompt using ChatGPT API
-            response = openai.Completion.create(
-              engine="davinci", # Specify the GPT-3 model to use
-              prompt=body['prompt'],
-              max_tokens=1024, # Set the maximum length of the generated text
-              n=1, # Generate one response
-              stop=None, # Don't specify a stopping sequence
-              temperature=0.5 # Set the "creativity" of the generated text
-            )
-            # Return the generated text as a JSON response
-            return JsonResponse({'response': response.choices[0].text})
-    # If the request is not valid, return a 400 Bad Request response
-    return JsonResponse({'error': 'Invalid request.'}, status=400)
-    return
+    data = JSONParser().parse(request)
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt="You are an admin dashboard web assistant, you will answer in Romanian and be polite and in context with the app, named Amason. " + data['prompt'],
+        max_tokens=128,
+        n=1,
+        stop=None,
+        temperature=0.2
+    )   
+    return JsonResponse({'response': response.choices[0].text})

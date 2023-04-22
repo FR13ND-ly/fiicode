@@ -23,15 +23,7 @@ export class UsersComponent {
   )
 
   requests$ : Observable<any> = this.user$.pipe(
-    switchMap((user : any) => of([
-      {
-        id: 1,
-        title: 'Vacation',
-        color: { primary: '#e3bc08', secondary: '#FDF1BA' },
-        start: new Date(2020, 1, 1),
-        end: new Date(2020, 1, 5),
-      }
-    ]))
+    switchMap((user : any) => this.adminService.getRequests(user.uid))
   )
 
   calendar$ : Observable<any> = this.user$.pipe(
