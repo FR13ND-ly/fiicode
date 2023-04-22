@@ -6,6 +6,7 @@ import { VacationsComponent } from './vacations/vacations.component';
 import { FilesComponent } from './files/files.component';
 import { RouterModule } from '@angular/router';
 import { AddVacationDialogComponent } from './add-vacation-dialog/add-vacation-dialog.component';
+import { MatIconModule  } from '@angular/material/icon';
 
 
 @NgModule({
@@ -14,13 +15,14 @@ import { AddVacationDialogComponent } from './add-vacation-dialog/add-vacation-d
     ChatComponent,
     VacationsComponent,
     FilesComponent,
-    AddVacationDialogComponent
+    AddVacationDialogComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild([
       { path: '', component: ShellComponent }
-    ])
+    ]),
+    MatIconModule
   ]
 })
 export class UserModule { }
