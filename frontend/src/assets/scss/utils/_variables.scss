@@ -6,7 +6,7 @@
     --primary-color: #2196f3;
     --accent-color: teal;
     --text-color: #e1e1e1;
-    --border-radius: 20px;
+    --border-radius: 5px;
     @include mq(small) {
         --border-radius: 0px;
     } 
