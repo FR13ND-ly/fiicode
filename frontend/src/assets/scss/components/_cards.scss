@@ -4,9 +4,9 @@
     border-radius: var(--border-radius);
     box-sizing: border-box;
     padding: 1.1rem;
-    color: hsl(212, 68%, 26%);
+    color: #f9e8de;
     backdrop-filter: blur(4px);
-    border: 2px solid hsla(212, 80%, 42%, 10%);
+    border: 2px solid var(--bg-color-dark-lighter);
 }
 
 .card--outline {

@@ -3,6 +3,7 @@
 $icon-size: 4.2rem;
 
 .info-pane {
+    background-color: var(--bg-color-dark-lighter);
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -27,7 +28,7 @@ $icon-size: 4.2rem;
     }
     &__link {
         margin-left: .5rem;
-        color: inherit;
+        color: var(--primary-color);
         &:hover {
             text-decoration: underline;
         }

@@ -16,7 +16,7 @@ $frontend-theme: mat.define-light-theme((
 @include mat.all-component-themes($frontend-theme);
 
 
-html, body { height: 100%; background: rgb(28,40,47); }
+html, body { height: 100%; background: var(--bg-color-dark); }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: var(--text-color)}
 
 :root {
