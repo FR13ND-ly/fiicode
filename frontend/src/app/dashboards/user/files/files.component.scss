@@ -1,0 +1,73 @@
+@use 'src/assets/scss/utils' as *;
+
+::-webkit-scrollbar {
+    background-color: #acacac;
+    border-radius: var(--border-radius);
+    height: .5rem;
+}
+
+.carousel {
+    overflow-x: scroll;
+}
+
+.files-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+$icon-size: 6.2rem;
+
+.info-pane {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-inline: 1rem;
+    cursor: pointer;
+    &__icon {
+        font-size: $icon-size;
+        height: $icon-size;
+        width: $icon-size;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+    &__title {
+        font-size: .8rem;
+        line-height: 1;
+    }
+    &__count {
+        margin: 0;
+        font-size: 2.4rem;
+    }
+    &__link {
+        margin-left: .5rem;
+        color: inherit;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.wrapper {
+    padding: 2rem;
+    @include mq(small) {
+        width: fit-content;
+        flex-direction: column;
+    } 
+}
+
+.mark {
+    color: var(--primary-color);
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}

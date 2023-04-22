@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent {
-
+  user = true;
+  username = 'CHATGPTV555555';
 }
